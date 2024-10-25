@@ -1,0 +1,16 @@
+---
+- name: Create dev-report file on Dev servers
+  hosts: Dev
+  become: yes
+  tasks:
+    - name: Create dev-report file
+      file:
+        path: /tmp/dev-report
+        state: touch
+        mode: '0777'
+
+    - name: Add a new line to dev-report file
+      lineinfile:
+        path: /tmp/dev-report
+        line: "This is my test to add a new line to file with a Ansible Playbook"
+        state: present

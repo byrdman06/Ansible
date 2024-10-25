@@ -1,0 +1,23 @@
+---
+- name: Create dev user and update dev-report permissions
+  hosts: Dev
+  become: yes
+  tasks:
+    - name: Create dev user and group
+      user:
+        name: dev
+        group: dev
+        state: present
+        shell: /bin/bash
+
+    - name: Create dev group
+      group:
+        name: dev
+        state: present
+
+    - name: Update permissions and ownership of dev-report
+      file:
+        path: /tmp/dev-report
+        mode: '0644'
+        owner: dev
+        group: dev
