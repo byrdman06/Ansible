@@ -1,0 +1,17 @@
+---
+- name: Yum Playbook
+  hosts: all
+  become: yes
+  vars_files:
+    - my_variable.yaml
+
+  tasks:
+  - name: Install firewalld
+    yum:
+      name: "{{ firewalld_package }}"
+      state: present
+      
+  - name: Install http
+    yum: 
+      name: "{{ httpd_package }}"
+      state: latest

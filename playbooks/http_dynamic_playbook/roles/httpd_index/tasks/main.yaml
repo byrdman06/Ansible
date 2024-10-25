@@ -1,0 +1,7 @@
+    - name: edit html file
+      lineinfile:
+        path: "{{ index_html_path }}"    
+        line: I created this with Ansible. My name is Stephen
+        create: yes
+        state: present
+      notify: Restart Httpd

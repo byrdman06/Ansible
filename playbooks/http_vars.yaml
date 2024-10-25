@@ -2,16 +2,18 @@
 - name: setup http website
   hosts: web_servers
   become: yes
+  vars_files:
+   - my_variable.yaml
 
   task:
     - name: install httpd
       yum:
         state: latest
-        name: httpd
+        name: "{{ httpd_package }}"
     
     - name: start httpd
       service:
-        name: httpd
+        name: "{{ httpd_service }}"
         state: started
         enable: yes
 

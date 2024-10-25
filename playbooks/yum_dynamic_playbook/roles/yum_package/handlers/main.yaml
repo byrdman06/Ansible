@@ -1,0 +1,10 @@
+---
+- name: Start Firewalld
+  service:
+    name: "{{ firewalld_service }}"
+    state: started
+
+- name: Start Httpd
+  service:
+    name: "{{ httpd_service }}"
+    state: started

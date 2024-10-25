@@ -1,0 +1,12 @@
+  - name: Install Firewalld
+    yum:
+      name: "{{ firewalld_package }}"
+      state: present
+    vars:
+      packages:
+      - firewalld
+
+  - name: Install Httpd
+    yum: 
+      name: "{{ httpd_package }}"
+      state: present

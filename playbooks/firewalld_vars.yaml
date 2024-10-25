@@ -1,0 +1,19 @@
+---
+- name:
+  hosts: Dev
+  become: yes
+  vars_files:
+    - firewalld_variables.yaml
+
+  tasks:
+    - name: Add httpd service
+      firewalld:
+        service: "{{ httpd_service }}"
+        permanent: yes
+        state: enabled
+
+    - name: Add http port
+      firewalld:
+        port: "{{ httpd_port }}"
+        permanent: yes
+        state: enabled

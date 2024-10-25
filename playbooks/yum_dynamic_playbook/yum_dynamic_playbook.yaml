@@ -1,0 +1,5 @@
+--- 
+- name: Install Httpd and Firewalld
+  hosts: web_servers
+  roles: 
+    - yum_package
