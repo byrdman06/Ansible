@@ -3,8 +3,8 @@
       name: "{{ firewalld_package }}"
       state: present
     vars:
-      packages:
-      - firewalld
+      firewalld_package:
+      - firewalld 
 
   - name: Install Httpd
     yum: 
