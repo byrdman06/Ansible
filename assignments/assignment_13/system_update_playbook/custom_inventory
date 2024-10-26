@@ -1,4 +1,4 @@
 [webservers]
 3.91.166.42 #client1
 3.226.106.144 #client2
-184.73.83.19 ansible_user=ubuntu #client3 #ubuntu
+54.242.48.244 ansible_user=ubuntu #client3 #ubuntu

@@ -1,4 +1,4 @@
 [webservers]
 3.91.166.42 apache_package=httpd #client1
 3.226.106.144 apache_package=httpd #client2
-184.73.83.19 ansible_user=ubuntu apache_package=apache2 #client3 #ubuntu
+54.242.48.244 ansible_user=ubuntu apache_package=apache2 #client3 #ubuntu
