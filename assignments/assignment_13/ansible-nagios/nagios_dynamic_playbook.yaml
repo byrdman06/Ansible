@@ -1,0 +1,12 @@
+---
+- name: Configure Nagios Master
+  hosts: nagios_master
+  become: yes
+  roles:
+    - nagios_master
+
+- name: Configure Nagios Clients
+  hosts: nagios_clients
+  become: yes
+  roles:
+    - nagios_client

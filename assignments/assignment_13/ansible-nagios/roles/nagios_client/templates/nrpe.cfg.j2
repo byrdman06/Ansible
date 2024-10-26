@@ -1,0 +1,5 @@
+# Sample NRPE Configuration File
+allowed_hosts=127.0.0.1,{{ ansible_default_ipv4.address }}
+command[check_users]=/usr/lib/nagios/plugins/check_users -w 5 -c 10
+command[check_load]=/usr/lib/nagios/plugins/check_load -r -w 15,10,5 -c 30,25,20
+# Add more commands as needed

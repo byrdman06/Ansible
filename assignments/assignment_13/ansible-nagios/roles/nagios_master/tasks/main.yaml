@@ -1,0 +1,26 @@
+---
+- name: Install Nagios
+  apt:
+    name:
+      - nagios3
+      - nagios-nrpe-plugin
+    state: present
+    update_cache: yes
+
+- name: Configure Nagios
+  template:
+    src: nagios.cfg.j2
+    dest: /etc/nagios3/nagios.cfg
+  notify: restart nagios
+
+- name: Enable Nagios service
+  service:
+    name: nagios3
+    state: started
+    enabled: yes
+
+- name: Configure NRPE for Master
+  lineinfile:
+    path: /etc/nagios/nagios.cfg
+    regexp: '^#allowed_hosts='
+    line: 'allowed_hosts=127.0.0.1,{{ ansible_default_ipv4.address }}'
