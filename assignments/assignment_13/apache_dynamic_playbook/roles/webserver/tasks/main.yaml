@@ -1,0 +1,19 @@
+---
+- name: Install Apache
+  package:
+    name: "{{ apache_package }}"
+    state: present
+  
+- name: Start and Enable Apache
+  service:
+    name: "{{ apache_service }}"
+    state: started
+    enabled: true
+
+- name: Deploy custom index.html to document root
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    owner: "{{ user_apache }}"
+    group: "{{ user_group }}"
+    mode: '0644'

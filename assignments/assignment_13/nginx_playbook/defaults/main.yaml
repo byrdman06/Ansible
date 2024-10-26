@@ -1,4 +1,0 @@
----
-server_name: localhost
-root_directory: /var/www/html
-index_file: index.html

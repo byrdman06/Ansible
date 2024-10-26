@@ -1,8 +1,0 @@
----
-galaxy_info:
-  author: Your Name
-  description: Ansible role to update all installed packages on a Linux machine
-  company: Your Company
-  license: MIT
-
-dependencies: []

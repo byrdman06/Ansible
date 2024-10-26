@@ -1,0 +1,6 @@
+---
+- name: Update all packages
+  hosts: webservers
+  become: true
+  roles:
+    - update_packages
