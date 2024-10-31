@@ -1,0 +1,39 @@
+---
+- name: Set up Nginx web server
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+      
+    - name: Install Nginx
+      yum:
+        name: nginx
+        state: present
+
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Create an index.html
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>Welcome to Nginx!</title>
+          </head>
+          <body>
+              <h1>Hello, Nginx is working!</h1>
+          </body>
+          </html>
+
+    - name: Ensure Nginx is running
+      service:
+        name: nginx
+        state: started
